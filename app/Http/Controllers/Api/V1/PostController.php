@@ -13,11 +13,13 @@ class PostController extends Controller
 {
     /**
      * つぶやき一覧
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @param Request $request
+     * @return PostResource
      */
     public function index(Request $request)
     {
-//        $posts = $request->user()->posts()->get();
+//      $posts = $request->user()->posts()->get();
+
 
 
         $posts = Post::where('created_at', '<', Carbon::now())->first();
